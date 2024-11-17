@@ -19,6 +19,15 @@ a {
   text-decoration: none;
 }
 
+.rounded_textbox {
+  border: 1px solid var(--border-color);
+  border-radius: 2rem;
+  width: 15rem;
+  padding: 1rem;
+  margin: 0.2rem;
+  outline: none;
+}
+
 /* Header */
 #hero {
   display: grid;
