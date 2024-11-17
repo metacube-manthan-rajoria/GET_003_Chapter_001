@@ -5,10 +5,13 @@ body {
   display: grid;
   height: 100%;
 
+  font-family: Arial, Helvetica, sans-serif;
+
   /* Global Variables */
   --text-color-dark: #000000;
   --text-color-light: #ffffff;
-  --sky-blue: #a7e6ff;
+  --theme-1: #a7e6ff;
+  --border-color: black;
 }
 
 a {
@@ -17,29 +20,42 @@ a {
 }
 
 /* Header */
-header {
-  background: transparent;
-  background: linear-gradient(45deg, rgba(157,152,255,1) 0%, rgba(208,208,255,1) 41%, rgba(200,246,255,1) 100%);
+#hero {
   display: grid;
-  align-items: center;
   grid-template-columns: 1fr 10fr;
 }
+#hero > h1 {
+  justify-self: center;
+  align-self: center;
+  margin: 0.5rem;
+  font-size: 5rem;
+  letter-spacing: -0.2rem;
+}
+
 #header_logo {
-  width: 35%;
+  width: 90%;
   margin: 0.5rem 0rem 0.5rem 0.5rem;
 }
 
 /* Header > Nav Bar */
-nav > ul{
+nav {
+  border-top: 1px solid var(--border-color);
+  border-bottom: 1px solid var(--border-color);
+}
+nav > ul {
   list-style-type: none;
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   justify-items: center;
 }
 
-
-footer {
-  display: grid;
+/* Add_Employee Section */
+section {
+  height: 40rem;
 }
 
-
+/* Footer */
+footer {
+  display: grid;
+  justify-items: center;
+}
