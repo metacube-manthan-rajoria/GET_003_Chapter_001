@@ -50,11 +50,52 @@ nav > ul {
 }
 
 /* Add_Employee Section */
-section {
+#pricing_options {
+  display: flex;
+  justify-content: space-evenly;
+}
+
+.pricing_option {
+  border: 1px solid var(--border-color);
+  padding: 4rem 6rem 3rem 6rem;
+
+  display: grid;
+  justify-items: center;
+}
+
+.pricing_option > span {
+  border: 1px solid var(--border-color);
+  border-radius: 50%;
+  display: block;
+  height: 7rem;
+  width: 7rem;
+
+  display: grid;
+  align-items: center;
+  justify-items: center;
+}
+
+.pricing_option > button {
+  background-color: white;
+  border: 1px solid var(--border-color);
+  margin-top: 2rem;
+  padding: 1rem;
+  transition: background-color 0.3s, color 0.3s, transform 0.3s;
+}
+.pricing_option > button:hover {
+  background-color: black;
+  color: white;
+  transform: scale(1.1);
 }
 
 /* Footer */
 footer {
   display: grid;
   justify-items: center;
+
+  border-top: 1px solid var(--border-color);
+
+  margin-top: 1rem;
+  padding-top: 2rem;
+  padding-bottom: 2rem;
 }
