@@ -22,7 +22,7 @@ a {
 .rounded_textbox {
   border: 1px solid var(--border-color);
   border-radius: 2rem;
-  width: 15rem;
+  width: 20rem;
   padding: 1rem;
   margin: 0.2rem;
   outline: none;
@@ -42,6 +42,10 @@ a {
   background-color: #1f57ff;
   color: white;
   transform: scale(1.1);
+}
+
+label {
+  margin: 0.2rem;
 }
 
 /* Header */
@@ -75,6 +79,11 @@ nav > ul {
 }
 
 /* Add_Employee Section */
+section {
+  border-top: 1px solid var(--border-color);
+  padding-bottom: 2rem;
+}
+
 #pricing_options {
   display: flex;
   justify-content: space-evenly;
