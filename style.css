@@ -28,6 +28,22 @@ a {
   outline: none;
 }
 
+.submit_button {
+  border: 5px solid #1f57ff;
+  border-radius: 2rem;
+  background-color: white;
+  transition: background-color 0.3s, color 0.3s, transform 0.3s;
+
+  width: 10rem;
+  padding: 1rem;
+  margin: 0.2rem;
+}
+.submit_button:hover {
+  background-color: #1f57ff;
+  color: white;
+  transform: scale(1.1);
+}
+
 /* Header */
 #hero {
   display: grid;
