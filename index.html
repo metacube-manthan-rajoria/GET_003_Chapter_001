@@ -34,7 +34,22 @@
         <section id="employee_section">
             <h2 id="add-employee">Add Employee</h2>
             <form action="submit">
+                <label for="employee-name">Employee Name</label>
+                <input type="text" id="employee-name" name="employee-name" placeholder="Enter your name here" required> <br>
 
+                <input type="radio" id="employee-gender-male" name="gender" value="male">
+                <label for="employee-gender-male">Male</label> <br>
+                <input type="radio" id="employee-gender-female" name="gender" value="female">
+                <label for="employee-gender-female">Female</label> <br>
+                <input type="radio" id="employee-gender-other" name="gender" value="other">
+                <label for="employee-gender-female">Other</label> <br>
+
+                <label for="employee-email">Employee Email</label>
+                <input type="email" name="employee-email" placeholder="Enter your email here" required> <br>
+                <label for="employee-password">Enter the password</label>
+                <input type="password" name="employee-password" placeholder="Enter your password here" required> <br>
+                <label for="employee-password-confirmation">Confirm the password</label>
+                <input type="password" name="employee-password-confirmation" placeholder="Enter your password here" required> <br>
             </form>
         </section>
 
