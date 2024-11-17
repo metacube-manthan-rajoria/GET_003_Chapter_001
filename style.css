@@ -1,0 +1,17 @@
+body {
+  margin: 0;
+  padding: 0;
+
+  height: 100%;
+  display: grid;
+
+  /* Global Variables */
+  --sky-blue: #A7E6FF;
+}
+
+nav {
+    background-color: var(--sky-blue);
+}
+nav > ul > li {
+    text-decoration: none;
+}
