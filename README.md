@@ -1,1 +1,1 @@
-# UI Design and Development - Chapter 001 (HTML)
+# UI Design and Development - Chapter 002 (CSS)
