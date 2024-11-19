@@ -26,7 +26,8 @@ a {
   border-radius: 2rem;
   width: 20rem;
   padding: 1rem;
-  margin: 0.2rem;
+  margin: 0.5rem;
+  margin-left: 1rem;
   outline: none;
 }
 
@@ -38,7 +39,8 @@ a {
 
   width: 10rem;
   padding: 1rem;
-  margin: 0.2rem;
+  margin: 0.5rem;
+  margin: 1rem;
 }
 .submit_button:hover {
   background-color: #1f57ff;
@@ -46,8 +48,9 @@ a {
   transform: scale(1.1);
 }
 
-label {
-  margin: 0.2rem;
+.label {
+  padding: 1rem;
+  margin-left: 0.5rem;
 }
 
 /* Header */
@@ -89,6 +92,7 @@ section {
 
 .section_heading {
   background: #f1f3ff;
+  background: var(--gradient-1);
   padding: 1rem;
   margin-left: 0.5rem;
   margin-right: 0.5rem;
