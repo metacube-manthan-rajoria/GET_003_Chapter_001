@@ -1,4 +1,4 @@
-# UI Design and Development - Chapter 001 (HTML)
+# UI Design and Development - Chapter 001 and 002
 
 > [!Note]
 > There are three Branches in this repo. <br>
