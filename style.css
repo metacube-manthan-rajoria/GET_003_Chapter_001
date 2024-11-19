@@ -11,6 +11,7 @@ body {
   --text-color-dark: #000000;
   --text-color-light: #ffffff;
   --theme-1: #a7e6ff;
+  --theme-2: rgb(65 182 230);
   --border-color: #1f57ff;
 
   --gradient-1: linear-gradient(45deg, #1f57ff 0%, rgb(101 150 255) 50%, rgb(65 182 230) 100%);
@@ -109,6 +110,16 @@ section {
   border-radius: 0.65rem;
 }
 
+/* Section > Feedback Section */
+#send_feedback_button {
+  border-color: var(--theme-2);
+}
+#send_feedback_button:hover {
+  background-color: var(--theme-2);
+  color: white;
+}
+
+/* Section > Pricing Section */
 #pricing_section {
   border: 0;
 }
