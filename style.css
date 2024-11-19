@@ -11,7 +11,7 @@ body {
   --text-color-dark: #000000;
   --text-color-light: #ffffff;
   --theme-1: #a7e6ff;
-  --border-color: black;
+  --border-color: #1f57ff;
 
   --gradient-1: linear-gradient(45deg, rgba(240,239,255,1) 0%, rgba(211,211,255,1) 61%, rgba(200,246,255,1) 100%);
 }
@@ -19,6 +19,10 @@ body {
 a {
   color: var(--text-color-dark);
   text-decoration: none;
+}
+
+summary::marker {
+  content: "";
 }
 
 .rounded_textbox {
@@ -29,6 +33,10 @@ a {
   margin: 0.5rem;
   margin-left: 1rem;
   outline: none;
+}
+
+select {
+  padding-right: 1rem;
 }
 
 .submit_button {
@@ -84,35 +92,42 @@ nav > ul {
   justify-items: center;
 }
 
-/* Add_Employee Section */
+/* Section */
 section {
-  border-top: 1px solid var(--border-color);
-  padding-bottom: 2rem;
+  margin: 1rem;
+  border: 0.3rem solid #1f57ff;
+  border-radius: 1rem;
 }
 
 .section_heading {
   background: #f1f3ff;
   background: var(--gradient-1);
   padding: 1rem;
-  margin-left: 0.5rem;
-  margin-right: 0.5rem;
-  border-radius: 1rem;
+  margin: 0;
+  border-radius: 0.8rem;
+}
+
+#pricing {
+  text-align: center;
 }
 
 #pricing_options {
   display: flex;
   justify-content: space-evenly;
+  margin-top: 1rem;
+  margin-bottom: 1rem;
 }
 
 .pricing_option {
   border: 1px solid var(--border-color);
+  border-radius: 1rem;
   padding: 4rem 6rem 3rem 6rem;
 
   display: grid;
   justify-items: center;
 }
 
-.pricing_option > span {
+.pricing_circle {
   border: 1px solid var(--border-color);
   border-radius: 50%;
   display: block;
@@ -127,6 +142,7 @@ section {
 .pricing_option > button {
   background-color: white;
   border: 1px solid var(--border-color);
+  border-radius: 0.5rem;
   margin-top: 2rem;
   padding: 1rem;
   transition: background-color 0.3s, color 0.3s, transform 0.3s;
