@@ -115,8 +115,8 @@ section {
   border-color: var(--theme-2);
 }
 #send_feedback_button:hover {
-  background-color: var(--theme-2);
-  color: white;
+  background-color: white;
+  color: black;
 }
 
 /* Section > Pricing Section */
