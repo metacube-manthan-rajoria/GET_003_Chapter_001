@@ -5,3 +5,4 @@
 > - The Main Branch and Dev Branch are same <br>
 > - The Chapter_001 Branch is the Chapter 001 of UI Design (HTML) <br>
 > - The Chapter_002 Branch is the Chapter 002 of UI Design (CSS) <br>
+> - The Chapter_006 Branch is the Chapter 006 of UI Design (JavaScript) <br>
