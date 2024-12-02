@@ -1,4 +1,10 @@
 const hasNumber = /\d/;
+const pricing = {
+    "two-wheeler": [5, 100, 500],
+    "three-wheeler": [10, 200, 1000],
+    "four-wheeler": [20, 500, 3500]
+};
+
 let currentItem1 = {
     itemIndex:0,
     employeeName: "",
@@ -8,7 +14,15 @@ let currentItem1 = {
     employeeNumber: ""
 };
 
-let currentItem2 = 0;
+let currentItem2 = {
+    itemIndex: 0,
+    vehicleCompany: "",
+    vehicleModel: "",
+    vehicleType: "",
+    vehicleNumber: "",
+    employeeId: "",
+    vehicleDescription: ""
+};
 
 function hideSection(elements){
     for(const element of elements){
@@ -93,7 +107,7 @@ function nextEmployeeSection(){
             let textBox = document.getElementById("employee-phone-number");
             let textBoxValue = textBox.value;
 
-            if(textBoxValue.length < 6){
+            if(textBoxValue.length < 8){
                 formMessage.style.display = "block";
                 formMessage.innerText = "Enter valid number";
                 return;
@@ -109,7 +123,6 @@ function nextEmployeeSection(){
         }
 
         currentItem1.itemIndex++;
-        console.log(currentItem1.itemIndex);
         hideSection(elements);
         elements[currentItem1.itemIndex].style.display = "block";
         formMessage.innerText = "";
@@ -121,13 +134,91 @@ function nextEmployeeSection(){
 
 function nextVehicleSection(){
     let elements = document.getElementsByClassName("vehicle_form_item");
-    hideSection(elements)
-    currentItem2++;
+    let formMessage = document.getElementById("vehicle_form_message");
 
-    if(currentItem2 < elements.length - 1){
-        elements[currentItem2].style.display = "block";
+    if(currentItem2.itemIndex < elements.length){
+        if(currentItem2.itemIndex == 0){
+            let textBox = document.getElementById("vehicle-company");
+            let textBoxValue = textBox.value;
+
+            if(textBoxValue.length < 2){
+                formMessage.style.display = "block";
+                formMessage.innerText = "Enter valid company name";
+                return;
+            } 
+            currentItem2.vehicleCompany = textBoxValue;
+        }else if(currentItem2.itemIndex == 1){
+            let textBox = document.getElementById("vehicle-model");
+            let textBoxValue = textBox.value;
+
+            if(textBoxValue.length < 2){
+                formMessage.style.display = "block";
+                formMessage.innerText = "Enter valid model name";
+                return;
+            } 
+            currentItem2.vehicleModel = textBoxValue;
+        }else if(currentItem2.itemIndex == 2){
+            let selectBox = document.getElementById("vehicle-type");
+            let textBoxValue = selectBox.value;
+
+            if(textBoxValue === "none"){
+                formMessage.style.display = "block";
+                formMessage.innerText = "Enter valid vehicle type";
+                return;
+            } 
+            currentItem2.vehicleType = textBoxValue;
+        }else if(currentItem2.itemIndex == 3){
+            let textBox = document.getElementById("vehicle-number");
+            let textBoxValue = textBox.value;
+
+            if(textBoxValue.length < 6){
+                formMessage.style.display = "block";
+                formMessage.innerText = "Enter valid vehicle number";
+                return;
+            } 
+            currentItem2.vehicleNumber = textBoxValue;
+        }else if(currentItem2.itemIndex == 4){
+            let textBox = document.getElementById("vehicle-employee-id");
+            let textBoxValue = textBox.value;
+
+            if(textBoxValue.length < 4){
+                formMessage.style.display = "block";
+                formMessage.innerText = "Enter valid id";
+                return;
+            } 
+            currentItem2.employeeId = textBoxValue;
+        }else{
+            let textArea = document.getElementById("vehicle-identification");
+            let textAreaValue = textArea.value;
+            currentItem2.vehicleDescription = textAreaValue;
+
+            let vehicleSection = document.getElementById("vehicle_section");
+            vehicleSection.style.display = "none";
+            
+            showPricingSection()
+
+            return;
+        }
+        
+        currentItem2.itemIndex++;
+        hideSection(elements);
+        elements[currentItem2.itemIndex].style.display = "block";
+        formMessage.innerText = "";
+        formMessage.style.display = "none";
     }else{
         elements[elements.length - 1].style.display = "block";
+    }
+}
+
+function showPricingSection(){
+    let pricingSection = document.getElementById("pricing_section");
+    pricingSection.style.display = "block";
+
+    let pricingOptions = document.getElementsByClassName("pricing_value");
+    let i = 0;
+    for(const option of pricingOptions){
+        option.innerText = pricing[currentItem2.vehicleType][i];
+        i++;
     }
 }
 
@@ -135,7 +226,7 @@ function initialize(){
     let vehicleSection = document.getElementById("vehicle_section");
     vehicleSection.style.display = "none";
     let pricingSection = document.getElementById("pricing_section");
-    pricingSection.style.display = "none";
+    pricingSection.style.display = "block";
 
     let elements1 = document.getElementsByClassName("employee_form_item");
     let elements2 = document.getElementsByClassName("vehicle_form_item");
@@ -151,4 +242,3 @@ function initialize(){
         })
     }
 }
-
