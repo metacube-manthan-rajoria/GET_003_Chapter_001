@@ -114,6 +114,13 @@ section {
   padding-top: 1rem;
 }
 
+.form_message {
+  font-size: 0.8rem;
+  color: red;
+  margin-left: 2rem;
+  display: none;
+}
+
 /* Section > Feedback Section */
 #send_feedback_button {
   border-color: var(--theme-2);
