@@ -104,8 +104,36 @@ function nextEmployeeSection(){
             let textBox2 = document.getElementById("employee-password-confirmation");
             let textBoxValue1 = textBox1.value;
             let textBoxValue2 = textBox2.value;
+            
+            let hasUpperLetter = false;
+            let hasLowerLetter = false;
+            let hasNumber = false;
+            let hasSpecialSymbols = false;
+            for(let i = 0; i<textBoxValue1.length; i++){
+                let currentChar = textBoxValue1.charAt(i).charCodeAt(0);
+                if(currentChar >=65 && currentChar <=90){
+                    hasUpperLetter = true;
+                }else if(currentChar >=97 && currentChar <=122){
+                    hasLowerLetter = true
+                }else if(currentChar >=48 && currentChar <=57){
+                    hasNumber = true;
+                }else if((currentChar >=33 && currentChar <=46) || currentChar == 64){
+                    hasSpecialSymbols = true;
+                }
+            }
 
-            if(!textBox1.validity.valid || !textBox2.validity.valid || textBoxValue1!==textBoxValue2) return;
+            let passwordTest = hasLowerLetter && hasUpperLetter && hasNumber && hasSpecialSymbols;
+
+            if(
+                !textBox1.validity.valid || 
+                !textBox2.validity.valid || 
+                textBoxValue1!==textBoxValue2 ||
+                !passwordTest
+            ){
+                formMessage.style.display = "block";
+                formMessage.innerText = "Enter valid password: Min Length should be 8. Include Upper,Lower Characters, Numbers, Symbols";
+                return;
+            };
             employeeDetails.employeePassword = textBoxValue1;
 
             let button = document.getElementById("employee_form_button");
