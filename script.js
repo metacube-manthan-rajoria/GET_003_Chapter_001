@@ -1,9 +1,13 @@
+const hasNumber = /\d/;
 let currentItem1 = {
     itemIndex:0,
     employeeName: "",
     employeeGender: "",
     employeeEmail: "",
+    employeePassword: "",
+    employeeNumber: ""
 };
+
 let currentItem2 = 0;
 
 function hideSection(elements){
@@ -21,7 +25,7 @@ function nextEmployeeSection(){
             let textBox = document.getElementById("employee-name");
             let textBoxValue = textBox.value;
 
-            if(textBoxValue.length < 2) return;
+            if(textBoxValue.length < 2 || hasNumber.test(textBoxValue)) return;
             currentItem1.employeeName = textBoxValue;
             let label = document.getElementById("employee_form_gender_label");
             label.innerText = "Hi " + currentItem1.employeeName + ", Can I know your gender.";
@@ -31,12 +35,32 @@ function nextEmployeeSection(){
             let radio3 = document.getElementById("employee-gender-other");
 
             if(!radio1.checked && !radio2.checked && !radio3.checked) return;
+            let label = document.getElementById("employee_form_email_label");
+            label.innerText = "Hi " + currentItem1.employeeName + ", Can I know your Email.";
         }else if(currentItem1.itemIndex == 2){
             let textBox = document.getElementById("employee-email");
             let textBoxValue = textBox.value;
 
-            if(textBoxValue.length < 2) return;
-            currentItem1.employeeName = textBoxValue;
+            if(!textBox.validity.valid) return;
+            currentItem1.employeeEmail = textBoxValue;
+        }else if(currentItem1.itemIndex == 3){
+            let textBox1 = document.getElementById("employee-password");
+            let textBox2 = document.getElementById("employee-password-confirmation");
+            let textBoxValue1 = textBox1.value;
+            let textBoxValue2 = textBox2.value;
+
+            if(!textBox1.validity.valid || !textBox2.validity.valid || textBoxValue1!==textBoxValue2) return;
+            currentItem1.employeePassword = textBoxValue1;
+        }else{
+            let textBox = document.getElementById("employee-phone-number");
+            let textBoxValue = textBox.value;
+
+            if(!textBox.validity.valid) return;
+            currentItem1.employeeNumber = textBoxValue;
+
+            alert(`
+
+            `);
         }
 
         currentItem1.itemIndex++;
@@ -46,6 +70,7 @@ function nextEmployeeSection(){
         elements[elements.length - 1].style.display = "block";
     }
 }
+
 function nextVehicleSection(){
     let elements = document.getElementsByClassName("vehicle_form_item");
     hideSection(elements)
@@ -71,6 +96,6 @@ function initialize(){
         radio.addEventListener("change", (e)=>{
             currentItem1.employeeGender = e.target.value;
         })
-    }     
+    }
 }
 
