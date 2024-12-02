@@ -7,7 +7,7 @@ const pricing = {
 const pricingDivision = [" / Day", " / Month", " / Year"];
 let currentCurrencyFormat = "$";
 
-let currentItem1 = {
+let employeeDetails = {
     itemIndex:0,
     employeeName: "",
     employeeGender: "",
@@ -16,7 +16,7 @@ let currentItem1 = {
     employeeNumber: ""
 };
 
-let currentItem2 = {
+let vehicleDetails = {
     itemIndex: 0,
     vehicleCompany: "",
     vehicleModel: "",
@@ -36,8 +36,8 @@ function nextEmployeeSection(){
     let elements = document.getElementsByClassName("employee_form_item");
     let formMessage = document.getElementById("employee_form_message");
     
-    if(currentItem1.itemIndex < elements.length){
-        if(currentItem1.itemIndex == 0){
+    if(employeeDetails.itemIndex < elements.length){
+        if(employeeDetails.itemIndex == 0){
             let textBox = document.getElementById("employee-name");
             let textBoxValue = textBox.value;
 
@@ -46,10 +46,10 @@ function nextEmployeeSection(){
                 formMessage.innerText = "Enter valid name";
                 return;
             } 
-            currentItem1.employeeName = textBoxValue;
+            employeeDetails.employeeName = textBoxValue;
             let label = document.getElementById("employee_form_gender_label");
-            label.innerText = "Hi " + currentItem1.employeeName + ", Can I know your gender.";
-        }else if(currentItem1.itemIndex == 1){
+            label.innerText = "Hi " + employeeDetails.employeeName + ", Can I know your gender.";
+        }else if(employeeDetails.itemIndex == 1){
             let radio1 = document.getElementById("employee-gender-male");
             let radio2 = document.getElementById("employee-gender-female");
             let radio3 = document.getElementById("employee-gender-other");
@@ -60,8 +60,8 @@ function nextEmployeeSection(){
                 return;
             };
             let label = document.getElementById("employee_form_email_label");
-            label.innerText = "Hi " + currentItem1.employeeName + ", Can I know your Email.";
-        }else if(currentItem1.itemIndex == 2){
+            label.innerText = "Hi " + employeeDetails.employeeName + ", Can I know your Email.";
+        }else if(employeeDetails.itemIndex == 2){
             let textBox = document.getElementById("employee-email");
             let textBoxValue = textBox.value;
 
@@ -70,7 +70,7 @@ function nextEmployeeSection(){
                 formMessage.innerText = "Enter valid email";
                 return;
             };
-            currentItem1.employeeEmail = textBoxValue;
+            employeeDetails.employeeEmail = textBoxValue;
 
             document.getElementById("employee-password").addEventListener("blur", (e)=>{
                 if(e.target.value.length < 8){
@@ -94,14 +94,14 @@ function nextEmployeeSection(){
                     e.target.style.border = "2px solid green";
                 }
             });
-        }else if(currentItem1.itemIndex == 3){
+        }else if(employeeDetails.itemIndex == 3){
             let textBox1 = document.getElementById("employee-password");
             let textBox2 = document.getElementById("employee-password-confirmation");
             let textBoxValue1 = textBox1.value;
             let textBoxValue2 = textBox2.value;
 
             if(!textBox1.validity.valid || !textBox2.validity.valid || textBoxValue1!==textBoxValue2) return;
-            currentItem1.employeePassword = textBoxValue1;
+            employeeDetails.employeePassword = textBoxValue1;
 
             let button = document.getElementById("employee_form_button");
             button.innerText = "Add Employee";
@@ -114,7 +114,7 @@ function nextEmployeeSection(){
                 formMessage.innerText = "Enter valid number";
                 return;
             };
-            currentItem1.employeeNumber = textBoxValue;
+            employeeDetails.employeeNumber = textBoxValue;
 
             let employeeSection = document.getElementById("employee_section");
             employeeSection.style.display = "none";
@@ -124,9 +124,9 @@ function nextEmployeeSection(){
             return;
         }
 
-        currentItem1.itemIndex++;
+        employeeDetails.itemIndex++;
         hideSection(elements);
-        elements[currentItem1.itemIndex].style.display = "block";
+        elements[employeeDetails.itemIndex].style.display = "block";
         formMessage.innerText = "";
         formMessage.style.display = "none";
     }else{
@@ -138,8 +138,8 @@ function nextVehicleSection(){
     let elements = document.getElementsByClassName("vehicle_form_item");
     let formMessage = document.getElementById("vehicle_form_message");
 
-    if(currentItem2.itemIndex < elements.length){
-        if(currentItem2.itemIndex == 0){
+    if(vehicleDetails.itemIndex < elements.length){
+        if(vehicleDetails.itemIndex == 0){
             let textBox = document.getElementById("vehicle-company");
             let textBoxValue = textBox.value;
 
@@ -148,8 +148,8 @@ function nextVehicleSection(){
                 formMessage.innerText = "Enter valid company name";
                 return;
             } 
-            currentItem2.vehicleCompany = textBoxValue;
-        }else if(currentItem2.itemIndex == 1){
+            vehicleDetails.vehicleCompany = textBoxValue;
+        }else if(vehicleDetails.itemIndex == 1){
             let textBox = document.getElementById("vehicle-model");
             let textBoxValue = textBox.value;
 
@@ -158,8 +158,8 @@ function nextVehicleSection(){
                 formMessage.innerText = "Enter valid model name";
                 return;
             } 
-            currentItem2.vehicleModel = textBoxValue;
-        }else if(currentItem2.itemIndex == 2){
+            vehicleDetails.vehicleModel = textBoxValue;
+        }else if(vehicleDetails.itemIndex == 2){
             let selectBox = document.getElementById("vehicle-type");
             let textBoxValue = selectBox.value;
 
@@ -168,8 +168,8 @@ function nextVehicleSection(){
                 formMessage.innerText = "Enter valid vehicle type";
                 return;
             } 
-            currentItem2.vehicleType = textBoxValue;
-        }else if(currentItem2.itemIndex == 3){
+            vehicleDetails.vehicleType = textBoxValue;
+        }else if(vehicleDetails.itemIndex == 3){
             let textBox = document.getElementById("vehicle-number");
             let textBoxValue = textBox.value;
 
@@ -178,8 +178,8 @@ function nextVehicleSection(){
                 formMessage.innerText = "Enter valid vehicle number";
                 return;
             } 
-            currentItem2.vehicleNumber = textBoxValue;
-        }else if(currentItem2.itemIndex == 4){
+            vehicleDetails.vehicleNumber = textBoxValue;
+        }else if(vehicleDetails.itemIndex == 4){
             let textBox = document.getElementById("vehicle-employee-id");
             let textBoxValue = textBox.value;
 
@@ -188,14 +188,14 @@ function nextVehicleSection(){
                 formMessage.innerText = "Enter valid id";
                 return;
             } 
-            currentItem2.employeeId = textBoxValue;
+            vehicleDetails.employeeId = textBoxValue;
 
             let button = document.getElementById("vehicle_form_button");
             button.innerText = "Add Vehicle";
         }else{
             let textArea = document.getElementById("vehicle-identification");
             let textAreaValue = textArea.value;
-            currentItem2.vehicleDescription = textAreaValue;
+            vehicleDetails.vehicleDescription = textAreaValue;
 
             let vehicleSection = document.getElementById("vehicle_section");
             vehicleSection.style.display = "none";
@@ -205,9 +205,9 @@ function nextVehicleSection(){
             return;
         }
         
-        currentItem2.itemIndex++;
+        vehicleDetails.itemIndex++;
         hideSection(elements);
-        elements[currentItem2.itemIndex].style.display = "block";
+        elements[vehicleDetails.itemIndex].style.display = "block";
         formMessage.innerText = "";
         formMessage.style.display = "none";
     }else{
@@ -222,17 +222,24 @@ function showPricingSection(){
     let pricingOptions = document.getElementsByClassName("pricing_circle");
     let i = 0;
     for(const option of pricingOptions){
-        option.innerText = currentCurrencyFormat + pricing[currentItem2.vehicleType][i] + pricingDivision[i];
+        option.innerText = currentCurrencyFormat + pricing[vehicleDetails.vehicleType][i] + pricingDivision[i];
         i++;
     }
 }
 
+/**
+ * Setting up eventListners and initial State
+ */
 function initialize(){
+    // Hiding Sections Initially
     let vehicleSection = document.getElementById("vehicle_section");
     vehicleSection.style.display = "none";
     let pricingSection = document.getElementById("pricing_section");
     pricingSection.style.display = "none";
+    let ticketSection = document.getElementById("ticket_section");
+    ticketSection.style.display = "block";
 
+    // Hiding all form elements except first 
     let elements1 = document.getElementsByClassName("employee_form_item");
     let elements2 = document.getElementsByClassName("vehicle_form_item");
     hideSection(elements1);
@@ -240,13 +247,15 @@ function initialize(){
     elements1[0].style.display = "block";
     elements2[0].style.display = "block";
 
+    // Adding eventListner to radiobutton
     let radios = document.getElementsByClassName("employee-gender-radio");
     for(const radio of radios){
         radio.addEventListener("change", (e)=>{
-            currentItem1.employeeGender = e.target.value;
+            employeeDetails.employeeGender = e.target.value;
         })
     }
 
+    // Adding eventListner to Pricing Currency Selector Menu
     let pricingCurrency = document.getElementById("pricing-currency");
     pricingCurrency.addEventListener("change", (e)=>{
         let currency = e.target.value;
