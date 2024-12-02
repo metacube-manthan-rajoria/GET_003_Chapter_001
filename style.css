@@ -110,6 +110,10 @@ section {
   border-radius: 0.65rem;
 }
 
+.employee_form_item, .vehicle_form_item {
+  padding-top: 1rem;
+}
+
 /* Section > Feedback Section */
 #send_feedback_button {
   border-color: var(--theme-2);
