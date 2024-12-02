@@ -1,4 +1,6 @@
 const hasNumber = /\d/;
+const checkEmail = /^((?!\.)[\w-_.]*[^.])(@\w+)(\.\w+(\.\w+)?[^.\W])$/gim;
+
 const pricing = {
     "two-wheeler": [5, 100, 500],
     "three-wheeler": [10, 200, 1000],
@@ -64,8 +66,9 @@ function nextEmployeeSection(){
         }else if(employeeDetails.itemIndex == 2){
             let textBox = document.getElementById("employee-email");
             let textBoxValue = textBox.value;
+            let isEmailValid = checkEmail.test(textBoxValue);
 
-            if(!textBox.validity.valid){
+            if(!textBox.validity.valid || !isEmailValid){
                 formMessage.style.display = "block";
                 formMessage.innerText = "Enter valid email";
                 return;
@@ -217,12 +220,24 @@ function nextVehicleSection(){
 
 function showPricingSection(){
     let pricingSection = document.getElementById("pricing_section");
+    let pricingOptions = document.getElementsByClassName("pricing_circle");
     pricingSection.style.display = "block";
 
-    let pricingOptions = document.getElementsByClassName("pricing_circle");
+    let currencyConvertionRatio = 1;
+    if(currentCurrencyFormat === "$"){
+        currencyConvertionRatio = 85;
+    }else if(currentCurrencyFormat === "¥"){
+        currencyConvertionRatio = 1/1.77;
+    }else{
+        currencyConvertionRatio = 1;
+    }
+
     let i = 0;
     for(const option of pricingOptions){
-        option.innerText = currentCurrencyFormat + pricing[vehicleDetails.vehicleType][i] + pricingDivision[i];
+        option.innerText = 
+            currentCurrencyFormat + 
+            (pricing[vehicleDetails.vehicleType][i] / currencyConvertionRatio).toFixed(2) + 
+            pricingDivision[i];
         i++;
     }
 }

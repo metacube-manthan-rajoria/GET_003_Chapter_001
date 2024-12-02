@@ -167,8 +167,8 @@ section {
   border: 1px solid var(--border-color);
   border-radius: 50%;
   display: block;
-  height: 7rem;
-  width: 7rem;
+  height: 10rem;
+  width: 10rem;
 
   display: grid;
   align-items: center;
@@ -187,6 +187,29 @@ section {
   background-color: var(--border-color);
   color: white;
   transform: scale(1.1);
+}
+
+/* Ticket Section */
+#ticket_section ul {
+  list-style-type: none;
+  margin-left: 0.5rem;
+  padding: 1rem;
+}
+
+#ticket_section ul li {
+  display: grid;
+  grid-template-columns: 1fr 4fr;
+  margin: 0.5rem;
+  padding: 0.5rem;
+  padding-bottom: 0.3rem;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.2);
+  font-size: 1.3rem;
+}
+
+.ticket_value {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: 80%;
 }
 
 /* Footer */
