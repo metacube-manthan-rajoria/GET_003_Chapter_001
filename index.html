@@ -43,7 +43,7 @@
                 <form>
                     <div class="employee_form_item">
                         <label for="employee-name" class="label">Name</label> <br>
-                        <input type="text" id="employee-name" class="rounded_textbox" name="employee-name" placeholder="Enter your name here" minlength="2" required> <br>
+                        <input type="text" id="employee-name" class="rounded_textbox" name="employee-name" placeholder="Enter your name" minlength="2" required> <br>
                     </div>
                     <div class="employee_form_item">
                         <div id="employee-gender-container" class="label">
@@ -58,17 +58,17 @@
                     </div>
                     <div class="employee_form_item">
                         <label for="employee-email" id="employee_form_email_label" class="label">Email</label> <br>
-                        <input type="email" id="employee-email" class="rounded_textbox" name="employee-email" placeholder="Enter your email here" required> <br>
+                        <input type="email" id="employee-email" class="rounded_textbox" name="employee-email" placeholder="Enter your email" required> <br>
                     </div>
                     <div class="employee_form_item">
                         <label for="employee-password" class="label">Enter the password</label> <br>
-                        <input type="password" id="employee-password" class="rounded_textbox" name="employee-password" placeholder="Enter your password here" minlength="8" required> <br>
+                        <input type="password" id="employee-password" class="rounded_textbox" name="employee-password" placeholder="Enter your password" minlength="8" required> <br>
                         <label for="employee-password-confirmation" class="label">Confirm the password</label> <br>
-                        <input type="password" id="employee-password-confirmation" class="rounded_textbox" name="employee-password-confirmation" placeholder="Enter your password here" minlength="8" required> <br>
+                        <input type="password" id="employee-password-confirmation" class="rounded_textbox" name="employee-password-confirmation" placeholder="Confirm your password" minlength="8" required> <br>
                     </div>
                     <div class="employee_form_item">
                         <label for="employee-phone-number" class="label">Phone Number</label> <br>
-                        <input type="tel" name="employee-phone-number" id="employee-phone-number" class="rounded_textbox" placeholder="Enter your phone number here"> <br>
+                        <input type="tel" name="employee-phone-number" id="employee-phone-number" class="rounded_textbox" placeholder="Enter your phone number"> <br>
                     </div>
                     <span id="employee_form_message" class="form_message"></span>
                     <button type="button" id="employee_form_button" class="submit_button" onclick="nextEmployeeSection()">Next</button>
@@ -85,11 +85,11 @@
                 <form>
                     <div class="vehicle_form_item">
                         <label for="vehicle-company" class="label">Vehicle Brand Name</label> <br>
-                        <input type="text" id="vehicle-company" class="rounded_textbox" name="vehicle-company" placeholder="Enter the company name here" required> <br>
+                        <input type="text" id="vehicle-company" class="rounded_textbox" name="vehicle-company" placeholder="Enter the company name" required> <br>
                     </div>
                     <div class="vehicle_form_item">
                         <label for="vehicle-model" class="label">Vehicle Model</label> <br>
-                        <input type="text" id="vehicle-model" class="rounded_textbox" name="vehicle-model" placeholder="Enter the vehicle model here" required> <br>
+                        <input type="text" id="vehicle-model" class="rounded_textbox" name="vehicle-model" placeholder="Enter the vehicle model" required> <br>
                     </div>
                     <div class="vehicle_form_item">
                         <label for="vehicle-type" class="label">Select vehicle type</label><br />
@@ -102,18 +102,18 @@
                     </div>
                     <div class="vehicle_form_item">
                         <label for="vehicle-number" class="label">Vehicle Number</label> <br>
-                        <input type="text" id="vehicle-number" class="rounded_textbox" name="vehicle-number" placeholder="Enter the vehicle number here" required> <br>
+                        <input type="text" id="vehicle-number" class="rounded_textbox" name="vehicle-number" placeholder="Enter the vehicle number" required> <br>
                     </div>
                     <div class="vehicle_form_item">
                         <label for="vehicle-employee-id" class="label">Employee Id</label> <br>
-                        <input type="text" id="vehicle-employee-id" class="rounded_textbox" name="vehicle-employee-id" placeholder="Enter the employee id here" required> <br>
+                        <input type="text" id="vehicle-employee-id" class="rounded_textbox" name="vehicle-employee-id" placeholder="Enter the employee id" required> <br>
                     </div>
                     <div class="vehicle_form_item">
                         <label for="vehicle-identification" class="label">Vehicle Identification Description</label> <br>
                         <textarea name="vehicle-identification" id="vehicle-identification" class="rounded_textbox"></textarea> <br>
                     </div>
                     <span id="vehicle_form_message" class="form_message"></span>
-                    <button type="button" class="submit_button" onclick="nextVehicleSection()">Add Vehicle</button>
+                    <button type="button" id="vehicle_form_button" class="submit_button" onclick="nextVehicleSection()">Next</button>
                 </form>
             </details>
         </section>
@@ -122,52 +122,61 @@
         <section id="pricing_section">
             <h2 id="pricing" class="section_heading">Pricing</h2>
 
+            <select id="pricing-currency" class="rounded_textbox" required placeholder="none">
+                <option value="none">Select your preffered currency for payment</option>
+                <option value="dollar">(USA) Dollar - $</option>
+                <option value="yen">(Japan) Yen - ¥</option>
+                <option value="rupees">(India) Rupees -  ₹</option>
+            </select>
+
             <!-- Pricing Plans Container -->
             <div id="pricing_options">
                 <div class="pricing_option">
                     <span>Normal Plan</span><br>
                     <span class="pricing_circle">
-                        <span class="pricing_currency_format">$</span>
-                        <span class="pricing_value">0</span>
-                        <span> / Day</span>
+                        $0 / Day
                     </span>
                     <button>Purchase Now</button>
                 </div>
                 <div class="pricing_option">
                     <span>Saver Plan</span><br>
                     <span class="pricing_circle">
-                        <span class="pricing_currency_format">$</span>
-                        <span class="pricing_value">0</span>
-                        <span> / Month</span>
+                        $0 / Month
                     </span>
                     <button>Purchase Now</button>
                 </div>
                 <div class="pricing_option">
                     <span>Super Saver Plan</span><br>
                     <span class="pricing_circle">
-                        <span class="pricing_currency_format">$</span>
-                        <span class="pricing_value">0</span>
-                        <span> / Year</span>
+                        $0 / Year
                     </span>
                     <button>Purchase Now</button>
                 </div>
             </div>
         </section>
 
+        <section id="ticket_section">
+            <h2 id="ticket_heading" class="section_heading">Ticket</h2>
+        </section>
+
         <!-- Feedback Section -->
         <section id="feedback_section">
-            <h2 id="give-feedback" class="section_heading">Give Feedback</h2>
-            <form action="submit">
-                <br>
-                <label for="feedback-email" class="label">Email</label> <br>
-                <input type="email" id="feedback-email" class="rounded_textbox" name="feedback-email" placeholder="Enter your email here" required> <br>
-                <label for="feedback-subject" class="label">Email Subject</label> <br>
-                <input type="text" id="feedback-subject" class="rounded_textbox" name="feedback-subject" placeholder="Enter the subject here" required> <br>
-                <label for="feedback-body" class="label">Email Message</label> <br>
-                <textarea name="feedback-body" id="feedback-body" class="rounded_textbox"></textarea> <br>
-
-                <button type="submit" id="send_feedback_button" class="submit_button">Send Feedback</button>
-            </form>
+            <details>
+                <summary class="section_heading">
+                    <h2 id="give-feedback" class="section_heading">Give Feedback</h2>
+                </summary>
+                <form action="submit">
+                    <br>
+                    <label for="feedback-email" class="label">Email</label> <br>
+                    <input type="email" id="feedback-email" class="rounded_textbox" name="feedback-email" placeholder="Enter your email here" required> <br>
+                    <label for="feedback-subject" class="label">Email Subject</label> <br>
+                    <input type="text" id="feedback-subject" class="rounded_textbox" name="feedback-subject" placeholder="Enter the subject here" required> <br>
+                    <label for="feedback-body" class="label">Email Message</label> <br>
+                    <textarea name="feedback-body" id="feedback-body" class="rounded_textbox"></textarea> <br>
+    
+                    <button type="submit" id="send_feedback_button" class="submit_button">Send Feedback</button>
+                </form>
+            </details>
         </section>
     </main>
 

@@ -4,6 +4,8 @@ const pricing = {
     "three-wheeler": [10, 200, 1000],
     "four-wheeler": [20, 500, 3500]
 };
+const pricingDivision = [" / Day", " / Month", " / Year"];
+let currentCurrencyFormat = "$";
 
 let currentItem1 = {
     itemIndex:0,
@@ -187,6 +189,9 @@ function nextVehicleSection(){
                 return;
             } 
             currentItem2.employeeId = textBoxValue;
+
+            let button = document.getElementById("vehicle_form_button");
+            button.innerText = "Add Vehicle";
         }else{
             let textArea = document.getElementById("vehicle-identification");
             let textAreaValue = textArea.value;
@@ -214,10 +219,10 @@ function showPricingSection(){
     let pricingSection = document.getElementById("pricing_section");
     pricingSection.style.display = "block";
 
-    let pricingOptions = document.getElementsByClassName("pricing_value");
+    let pricingOptions = document.getElementsByClassName("pricing_circle");
     let i = 0;
     for(const option of pricingOptions){
-        option.innerText = pricing[currentItem2.vehicleType][i];
+        option.innerText = currentCurrencyFormat + pricing[currentItem2.vehicleType][i] + pricingDivision[i];
         i++;
     }
 }
@@ -226,7 +231,7 @@ function initialize(){
     let vehicleSection = document.getElementById("vehicle_section");
     vehicleSection.style.display = "none";
     let pricingSection = document.getElementById("pricing_section");
-    pricingSection.style.display = "block";
+    pricingSection.style.display = "none";
 
     let elements1 = document.getElementsByClassName("employee_form_item");
     let elements2 = document.getElementsByClassName("vehicle_form_item");
@@ -241,4 +246,18 @@ function initialize(){
             currentItem1.employeeGender = e.target.value;
         })
     }
+
+    let pricingCurrency = document.getElementById("pricing-currency");
+    pricingCurrency.addEventListener("change", (e)=>{
+        let currency = e.target.value;
+
+        if(currency === "yen"){
+            currentCurrencyFormat = "¥";
+        }else if(currency === "rupees"){
+            currentCurrencyFormat = "₹";
+        }else{
+            currentCurrencyFormat = "$";
+        }
+        showPricingSection();
+    })
 }
