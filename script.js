@@ -248,6 +248,9 @@ function showTicketSection(){
     let pricingSection = document.getElementById("pricing_section");
     pricingSection.style.display = "none";
 
+    let ticketSection = document.getElementById("ticket_section");
+    ticketSection.style.display = "block";
+
     let employeeTicketFields = document.getElementsByClassName("ticket_employee_value");
     let vehicleTicketFields = document.getElementsByClassName("ticket_vehicle_value");
     let pricingPlanDetailValue = document.getElementById("pricing_plan_details_value");
@@ -300,7 +303,7 @@ function initialize(){
     let pricingSection = document.getElementById("pricing_section");
     pricingSection.style.display = "none";
     let ticketSection = document.getElementById("ticket_section");
-    ticketSection.style.display = "block";
+    ticketSection.style.display = "none";
 
     // Hiding all form elements except first 
     let elements1 = document.getElementsByClassName("employee_form_item");
