@@ -18,7 +18,6 @@ function hideSection(elements){
 
 function nextEmployeeSection(){
     let elements = document.getElementsByClassName("employee_form_item");
-
     
     if(currentItem1.itemIndex < elements.length - 1){
         if(currentItem1.itemIndex == 0){
@@ -51,16 +50,15 @@ function nextEmployeeSection(){
 
             if(!textBox1.validity.valid || !textBox2.validity.valid || textBoxValue1!==textBoxValue2) return;
             currentItem1.employeePassword = textBoxValue1;
+
+            let button = document.getElementById("employee_form_button");
+            button.innerText = "Add Employee";
         }else{
             let textBox = document.getElementById("employee-phone-number");
             let textBoxValue = textBox.value;
 
             if(!textBox.validity.valid) return;
             currentItem1.employeeNumber = textBoxValue;
-
-            alert(`
-
-            `);
         }
 
         currentItem1.itemIndex++;
@@ -84,6 +82,11 @@ function nextVehicleSection(){
 }
 
 function initialize(){
+    let vehicleSection = document.getElementById("vehicle_section");
+    vehicleSection.style.display = "none";
+    let pricingSection = document.getElementById("pricing_section");
+    pricingSection.style.display = "none";
+
     let elements1 = document.getElementsByClassName("employee_form_item");
     let elements2 = document.getElementsByClassName("vehicle_form_item");
     hideSection(elements1);
