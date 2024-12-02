@@ -70,7 +70,7 @@
                         <label for="employee-phone-number" class="label">Phone Number</label> <br>
                         <input type="tel" name="employee-phone-number" id="employee-phone-number" class="rounded_textbox" placeholder="Enter your phone number here"> <br>
                     </div>
-                    <button type="button" class="submit_button" onclick="nextEmployeeSection()">Add Employee</button>
+                    <button type="button" id="employee_form_button" class="submit_button" onclick="nextEmployeeSection()">Next</button>
                 </form>
             </details>
         </section>
@@ -117,22 +117,6 @@
             </details>
         </section>
 
-        <!-- Feedback Section -->
-        <section id="feedback_section">
-            <h2 id="give-feedback" class="section_heading">Give Feedback</h2>
-            <form action="submit">
-                <br>
-                <label for="feedback-email" class="label">Email</label> <br>
-                <input type="email" id="feedback-email" class="rounded_textbox" name="feedback-email" placeholder="Enter your email here" required> <br>
-                <label for="feedback-subject" class="label">Email Subject</label> <br>
-                <input type="text" id="feedback-subject" class="rounded_textbox" name="feedback-subject" placeholder="Enter the subject here" required> <br>
-                <label for="feedback-body" class="label">Email Message</label> <br>
-                <textarea name="feedback-body" id="feedback-body" class="rounded_textbox"></textarea> <br>
-
-                <button type="submit" id="send_feedback_button" class="submit_button">Send Feedback</button>
-            </form>
-        </section>
-
         <!-- Pricing Section -->
         <section id="pricing_section">
             <h2 id="pricing" class="section_heading">Pricing</h2>
@@ -170,6 +154,22 @@
                     <button>Purchase Now</button>
                 </div>
             </div>
+        </section>
+
+        <!-- Feedback Section -->
+        <section id="feedback_section">
+            <h2 id="give-feedback" class="section_heading">Give Feedback</h2>
+            <form action="submit">
+                <br>
+                <label for="feedback-email" class="label">Email</label> <br>
+                <input type="email" id="feedback-email" class="rounded_textbox" name="feedback-email" placeholder="Enter your email here" required> <br>
+                <label for="feedback-subject" class="label">Email Subject</label> <br>
+                <input type="text" id="feedback-subject" class="rounded_textbox" name="feedback-subject" placeholder="Enter the subject here" required> <br>
+                <label for="feedback-body" class="label">Email Message</label> <br>
+                <textarea name="feedback-body" id="feedback-body" class="rounded_textbox"></textarea> <br>
+
+                <button type="submit" id="send_feedback_button" class="submit_button">Send Feedback</button>
+            </form>
         </section>
     </main>
 
