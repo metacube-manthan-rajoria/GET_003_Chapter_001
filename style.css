@@ -212,6 +212,15 @@ section {
   max-width: 80%;
 }
 
+#pricing_plan_details{
+  display: grid;
+  grid-template-columns: 1fr 4fr;
+  margin-left: 1rem;
+  padding: 1.5rem;
+  padding-top: 0;
+  font-size: 2rem;
+}
+
 /* Footer */
 footer {
   display: grid;

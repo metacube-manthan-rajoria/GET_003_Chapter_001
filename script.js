@@ -9,6 +9,8 @@ const pricing = {
 const pricingDivision = [" / Day", " / Month", " / Year"];
 let currentCurrencyFormat = "$";
 
+let currentPlan = "day";
+
 let employeeDetails = {
     itemIndex:0,
     employeeName: "",
@@ -242,6 +244,52 @@ function showPricingSection(){
     }
 }
 
+function showTicketSection(){
+    let pricingSection = document.getElementById("pricing_section");
+    pricingSection.style.display = "none";
+
+    let employeeTicketFields = document.getElementsByClassName("ticket_employee_value");
+    let vehicleTicketFields = document.getElementsByClassName("ticket_vehicle_value");
+    let pricingPlanDetailValue = document.getElementById("pricing_plan_details_value");
+
+    // Populating all the details fields
+    employeeTicketFields[0].innerText = employeeDetails.employeeName;
+    employeeTicketFields[1].innerText = employeeDetails.employeeGender;
+    employeeTicketFields[2].innerText = employeeDetails.employeeEmail;
+    employeeTicketFields[3].innerText = employeeDetails.employeeNumber;
+
+    vehicleTicketFields[0].innerText = vehicleDetails.vehicleCompany;
+    vehicleTicketFields[1].innerText = vehicleDetails.vehicleModel;
+    vehicleTicketFields[2].innerText = vehicleDetails.vehicleType;
+    vehicleTicketFields[3].innerText = vehicleDetails.vehicleNumber;
+    vehicleTicketFields[4].innerText = vehicleDetails.employeeId;
+    vehicleTicketFields[5].innerText = vehicleDetails.vehicleDescription;
+
+    // Displaying the final plan
+    let priceIndex = 0;
+    if(currentPlan === "month"){
+        priceIndex = 1;
+    }else if(currentPlan === "year"){
+        priceIndex = 2;
+    }else{
+        priceIndex = 0;
+    }
+
+    let currencyConvertionRatio = 1;
+    if(currentCurrencyFormat === "$"){
+        currencyConvertionRatio = 85;
+    }else if(currentCurrencyFormat === "¥"){
+        currencyConvertionRatio = 1/1.77;
+    }else{
+        currencyConvertionRatio = 1;
+    }
+
+    pricingPlanDetailValue.innerText = 
+        currentCurrencyFormat + 
+        (pricing[vehicleDetails.vehicleType][priceIndex] / currencyConvertionRatio).toFixed(2) + 
+        " per " + currentPlan;
+}
+
 /**
  * Setting up eventListners and initial State
  */
@@ -267,7 +315,7 @@ function initialize(){
     for(const radio of radios){
         radio.addEventListener("change", (e)=>{
             employeeDetails.employeeGender = e.target.value;
-        })
+        });
     }
 
     // Adding eventListner to Pricing Currency Selector Menu
@@ -284,4 +332,13 @@ function initialize(){
         }
         showPricingSection();
     })
+
+    // Adding eventListner to Pricing Option Button
+    let pricingPlanButtons = document.getElementsByClassName("pricing_option_button");
+    for(const button of pricingPlanButtons){
+        button.addEventListener("click", (e)=>{
+            currentPlan = e.target.value;
+            showTicketSection();
+        });
+    }
 }
