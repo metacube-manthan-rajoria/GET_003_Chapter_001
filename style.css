@@ -210,6 +210,7 @@ section {
   overflow: hidden;
   text-overflow: ellipsis;
   max-width: 80%;
+  padding-left: 0.5rem;
 }
 
 #pricing_plan_details{
