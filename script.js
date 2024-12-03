@@ -30,13 +30,13 @@ let vehicleDetails = {
     vehicleDescription: ""
 };
 
-function hideSection(elements){
+let hideSection = (elements)=>{
     for(const element of elements){
         element.style.display = "none";
     }
 }
 
-function nextEmployeeSection(){
+let nextEmployeeSection = ()=>{
     let elements = document.getElementsByClassName("employee_form_item");
     let formMessage = document.getElementById("employee_form_message");
     
@@ -167,7 +167,7 @@ function nextEmployeeSection(){
     }
 }
 
-function nextVehicleSection(){
+let nextVehicleSection = ()=>{
     let elements = document.getElementsByClassName("vehicle_form_item");
     let formMessage = document.getElementById("vehicle_form_message");
 
@@ -248,7 +248,7 @@ function nextVehicleSection(){
     }
 }
 
-function showPricingSection(){
+let showPricingSection = ()=>{
     let pricingSection = document.getElementById("pricing_section");
     let pricingOptions = document.getElementsByClassName("pricing_circle");
     pricingSection.style.display = "block";
@@ -272,7 +272,7 @@ function showPricingSection(){
     }
 }
 
-function showTicketSection(){
+let showTicketSection = ()=>{
     let pricingSection = document.getElementById("pricing_section");
     pricingSection.style.display = "none";
 
@@ -324,7 +324,7 @@ function showTicketSection(){
 /**
  * Setting up eventListners and initial State
  */
-function initialize(){
+let initialize = ()=>{
     // Hiding Sections Initially
     let vehicleSection = document.getElementById("vehicle_section");
     vehicleSection.style.display = "none";
