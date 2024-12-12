@@ -7,3 +7,4 @@ Chapter 001, 002 and 006
 > - The Chapter_001 Branch is the Chapter 001 of UI Design (HTML) <br>
 > - The Chapter_002 Branch is the Chapter 002 of UI Design (CSS) <br>
 > - The Chapter_006 Branch is the Chapter 006 of UI Design (JavaScript) <br>
+> - The Chapter_007 Branch is the Chapter 007 of UI Design (ECMAScript) <br>
