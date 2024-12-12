@@ -1,5 +1,5 @@
 # UI Design and Development - Metacube Parking System
-Chapter 001, 002 and 006
+Chapter 001, 002, 006 and 007
 
 > [!Note]
 > There are three Branches in this repo. <br>
